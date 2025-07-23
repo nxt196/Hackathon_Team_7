@@ -1,5 +1,9 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import DashboardHome from './modules/DashboardHome';
+import PageOne from 'modules/PageOne';
+import PageTwo from 'modules/PageTwo';
+
+
 
 
 
@@ -9,6 +13,18 @@ function App() {
             path: '/',
             element: <DashboardHome> </DashboardHome>,
         },
+        {
+            path: '/page-one',
+            element: <PageOne></PageOne>,
+        },
+        {
+            path: '/page-two',
+            element: <PageTwo></PageTwo>,
+        },
+        // {
+        //     path: '/pageTwo',
+        //     element: <PageTwo></PageTwo>,
+        // },
     ]);
 
     return (

@@ -20,5 +20,4 @@ root.render(
 );
 
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<h1>Hello from Main</h1>);
+

@@ -4,13 +4,19 @@ import {
 } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistStore } from 'redux-persist';
-import dashboardHomeReducer from './slices/dashboardhome-slice';
+import pageOneReducer from './slices/pageOne-slice';
+import pageTwoReducer from './slices/pageTwo-slice';
+import DashboardHomeReducer from './slices/dashboardhome-slice';
+
 
 
 const isLocal = true;
 
 export const rootReducer = combineReducers({
-    dashboardhome: dashboardHomeReducer,
+    pageOne: pageOneReducer,
+    dashboardHome: DashboardHomeReducer,
+    pageTwo: pageTwoReducer,
+
 });
 
 export const setupStore = (preloadedState) => {

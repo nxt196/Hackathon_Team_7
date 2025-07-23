@@ -1,8 +1,5 @@
 import axios from 'axios';
 
-
-
-
 export const getAlltimes = () => {
     return axios
         .get('http://localhost:4000/getTime')
@@ -12,11 +9,7 @@ export const getAlltimes = () => {
         });
 };
 
-
-
-export const addCurrentTime = (currentTime) => {
+export const removeLastTime = () => {
     return axios
-        .post('http://localhost:4000/addTime', { currentTime });
-};
-
-
+        .post('http://localhost:4000/removetime');
+}

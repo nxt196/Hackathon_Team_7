@@ -16,14 +16,12 @@ export const getAllTimes = createAsyncThunk(
     }
 );
 
-
-
 export const addCurrentTime = createAsyncThunk(
     'dashboardhome/addTime',
     async (currentTime, { dispatch }) => {
         try {
             const data = await dashboardHomeApi.addCurrentTime(currentTime);
-            dispatch(dashboardHomeActions.loadPastTimes({ previousTimes: data.previousTimes }));
+            dispatch(dashboardHomeActions.addCurrentTime({ currentTime }));
         } catch (error) {
             console.error('Error adding time:', error);
         }

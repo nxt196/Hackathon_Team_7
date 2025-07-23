@@ -30,7 +30,6 @@ console.log('selectTimes Previous Times:', selectTimes);
 const localPersistConfig = {
     key: 'app',
     storage,
-    whitelist: ['dashboardHome'],
 };
 
 

@@ -1,9 +1,9 @@
-import Home from './components/Home/index'
+import AddTimeButton from './components/AddTimeButton'
 
 const DashboardHome = () => {
     return (
         <>
-            <Home />
+            <AddTimeButton />
         </>
     );
 };
