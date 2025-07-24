@@ -16,14 +16,6 @@ const pageTwoSlice =
                     console.log('State Previous Times:', state.previousTimes);
                     console.log('Server Previous Times:', previousTimes);
                 },
-                removeLastTime(state, action) {
-                    const last_time = state.previousTimes[state.previousTimes.length - 1];
-                    const { previousTimes } = action.payload
-                    state.previousTimes = previousTimes || [];
-                    console.log('Removed last_time:', last_time);
-                    console.log('State Previous Times:', state.previousTimes);
-                    console.log('Server Previous Times:', previousTimes);
-                }
             }
         }
     )

@@ -38,16 +38,13 @@ app.post('/addTime', (req, res) => {
 
 app.post('/removetime', (_, res) => {
     console.log('Times Before Pop:', timeCheck.previousTimes);
-    const last_time = timeCheck.previousTimes.pop()
-    console.log('Removed Time', last_time)
-    res.json({previousTimes: timeCheck.previousTimes})
+    const times_pre_remove = timeCheck.previousTimes;
+    const last_time = timeCheck.previousTimes.pop();
+    console.log('Removed Time', last_time);
+    console.log('Times After Pop:', timeCheck.previousTimes);
+    res.json({times_pre_remove, last_time, previousTimes: timeCheck.previousTimes})
 })
 
-
-app.use((req, res) => {
-  console.log(`Unhandled route: ${req.method} ${req.url}`);
-  res.status(404).send('Route not found');
-});
 
 
 

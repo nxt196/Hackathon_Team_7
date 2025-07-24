@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -8,17 +8,23 @@ const dashboardHomeSlice =
             name: 'dashboardHome',
             initialState: {
                 previousTimes: [],
+                currentTime: '',
             },
             reducers: {
-                loadPastTimes(state, action) {
-                    const { previousTimes } = action.payload;
-                    state.previousTimes = previousTimes;
-                    console.log('State Previous Times:', state.previousTimes);
-                    console.log('Server Previous Times:', previousTimes);
+                loadCurrentTime(state, action) {
+                    const { currentTime } = action.payload;
+                    state.currentTime = currentTime;
+                    console.log('State Current Time:', state.currentTime);
                 },
                 addCurrentTime(state, action) {
                     state.previousTimes.push(action.payload.currentTime)
-                }
+                },
+                loadPastTimes(state, action) {
+                    const { previousTimes } = action.payload;
+                    state.previousTimes = previousTimes;
+                    console.log('Dashboard Home State Previous Times:', state.previousTimes);
+                    console.log('Dashboard Home Server Previous Times:', previousTimes);
+                },
 
             }
         }

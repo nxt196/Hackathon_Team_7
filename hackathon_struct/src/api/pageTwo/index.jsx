@@ -4,12 +4,7 @@ export const getAlltimes = () => {
     return axios
         .get('http://localhost:4000/getTime')
         .then(({ data }) => {
-            console.log(data.previousTimes);
+            console.log('Console Log from pageTwo api index.jsx', data.previousTimes);
             return data.previousTimes;
         });
 };
-
-export const removeLastTime = () => {
-    return axios
-        .post('http://localhost:4000/removetime');
-}

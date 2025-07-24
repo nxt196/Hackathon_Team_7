@@ -13,16 +13,3 @@ export const getAllTimes = createAsyncThunk(
         }
     }
 );
-
-export const removeLastTime = createAsyncThunk(
-    'pageTwo/removeLastTime',
-    async (_, { dispatch }) => {
-        try {
-            const response = await pageTwoApi.removeLastTime();
-            const data = response.data;
-            dispatch(pageTwoActions.removeLastTime({ previousTimes: data.previousTimes }));
-        } catch (error) {
-            console.error('Error Removing Time:', error);
-        }
-    }
-);

@@ -1,14 +1,11 @@
 
-/* .home-container {
-  padding: 2rem;
-  background-color: #f4f6f8;
-  min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
-} */
-
 .home-container {
   width: 960px;
   margin: 0 auto;
+}
+
+p{
+ font-family: Arial, Helvetica, sans-serif;
 }
 
 .home-grid{
@@ -19,33 +16,28 @@ justify-content: center;
 flex-wrap: wrap;
 flex-direction: column;
 display: flex;
-/* background-color: #cfe368; */
+background-color: rgb(18 146 219);
 margin-top: 6.4rem;
+
+border-radius: 1rem; 
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+
 }
+
 .home-title {
   font-size: 2rem;
   font-weight: bold;
-  color: #003057;
+  color: rgb(248 249 249);
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
-
-/* justify-content: space-evenly; */
-/* .button-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
-  justify-items:center;
-  margin-top: 2rem;
-} */
 .button-grid{
 display: grid;
 grid-template-columns: 1fr 1fr ;
 row-gap: 8px;
 column-gap: 8px;
 display: grid;
-/* background-color: black; */
 justify-items: center;
 }
 .button-grid.three-btn{
@@ -54,8 +46,17 @@ grid-template-columns: 1fr 1fr 1fr ;
 row-gap: 8px;
 column-gap: 8px;
 display: grid;
-/* background-color: black; */
 justify-items: center;
+}
+
+.action-text {
+  text-align: center;
+  width: 100%;
+  color: rgb(248 249 249);
+}
+
+li {
+  list-style-type: none;
 }
 
 .action-button {
@@ -64,18 +65,20 @@ justify-items: center;
   border-radius: 8px;
   padding: 1.5rem;
   text-align: center;
-  font-weight: 600;
-  color: #003057;
+  font-weight: 750;
+  color: black;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   width: 100%;
   max-width: 200px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7rem;
 }
 
 .action-button:hover {
   background-color: #e5f0ff;
-  border-color: #003057;
+  border-color: rgba(57, 144, 216, 0.699);
   transform: translateY(-2px);
 }
 
@@ -90,4 +93,21 @@ justify-items: center;
   margin-top: 2rem;
   font-size: 1.25rem;
   color: #003057;
+}
+
+
+.button-with-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-label {
+
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: rgb(248 249 249);
+  font-weight: bold;
+  text-align: center;
+  max-width: 200px;
 }

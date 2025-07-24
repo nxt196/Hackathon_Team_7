@@ -9,19 +9,26 @@ const pageOneSlice =
             name: 'pageOne',
             initialState: {
                 previousTimes: [],
+                removedTime: '',
             },
             reducers: {
-                addCurrentTime(state, action) {
-                    state.previousTimes.push(action.payload.currentTime)
-                },
-                removeLastTime(state, action) {
-                    const last_time = state.previousTimes[state.previousTimes.length - 1];
-                    const { previousTimes } = action.payload
-                    state.previousTimes = previousTimes || [];
-                    console.log('Removed last_time:', last_time);
+                loadPastTimes(state, action) {
+                    const { previousTimes } = action.payload;
+                    state.previousTimes = previousTimes;
                     console.log('State Previous Times:', state.previousTimes);
                     console.log('Server Previous Times:', previousTimes);
                 },
+                removeLastTime(state, action) {
+                    const { previousTimes } = action.payload
+                    state.previousTimes = previousTimes || [];
+                    console.log('State Previous Times:', state.previousTimes);
+                    console.log('Server Previous Times:', previousTimes);
+                },
+                loadRemovedTime(state, action) {
+                    const { removedTime } = action.payload;
+                    state.removedTime = removedTime || '';
+                    console.log('Removed last_time:', state.removedTime);
+                }
             }
         }
     )

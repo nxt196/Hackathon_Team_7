@@ -31,24 +31,33 @@ const ShowTimesButton = () => {
             <div className='home-grid'>
                 <h1 className="home-title">Show Times(Page Two)</h1>
                 <div className="button-grid three-btn">
-                    <button className="action-button" onClick={handleNavigateHome}>
-                        Go Home
-                    </button>
-                    <button className="action-button" onClick={() => setShowTimes(true)}>Show All Times</button>
-                    <button className="action-button" onClick={handleNavigatePageOne}>
-                        Add Time Page
-                    </button>
+                    <div className="button-with-label">
+                        <button className="action-button" onClick={handleNavigateHome}>
+                            Go Home
+                        </button>
+                    </div>
+                    <div className="button-with-label">
 
+                        <button className="action-button" onClick={() => setShowTimes(true)}>Show All Times</button>
+                        <p className="button-label">Click to show all times</p>
+                    </div>
+                    <div className="button-with-label">
+                        <button className="action-button" onClick={handleNavigatePageOne}>
+                            Remove Last Time Page
+                        </button>
+                    </div>
+                </div>
+                <div className="action-text">
+                    {showTimes && (
+                        <ul>
+                            {Array.isArray(previousTimes) && previousTimes.slice().reverse().map((time, index) => (
+                                <li key={index}>{time}</li>
+                            ))}
+                        </ul>
+                    )}
                 </div>
             </div>
 
-            {showTimes && (
-                <ul>
-                    {Array.isArray(previousTimes) && previousTimes.slice().reverse().map((time, index) => (
-                        <li key={index}>{time}</li>
-                    ))}
-                </ul>
-            )}
         </div>
     );
 };
