@@ -29,7 +29,7 @@ const ShowTimesButton = () => {
     return (
         <div className="home-container">
             <div className='home-grid'>
-                <h1 className="home-title">Show Times(Page Two)</h1>
+                <h1 className="home-title">Show All Times(Page Two)</h1>
                 <div className="button-grid three-btn">
                     <div className="button-with-label">
                         <button className="action-button" onClick={handleNavigateHome}>
@@ -37,7 +37,6 @@ const ShowTimesButton = () => {
                         </button>
                     </div>
                     <div className="button-with-label">
-
                         <button className="action-button" onClick={() => setShowTimes(true)}>Show All Times</button>
                         <p className="button-label">Click to show all times</p>
                     </div>
@@ -47,13 +46,21 @@ const ShowTimesButton = () => {
                         </button>
                     </div>
                 </div>
-                <div className="action-text">
+            </div>
+
+            <div className='results-flex'>
+                <div className="results-text">
                     {showTimes && (
-                        <ul>
-                            {Array.isArray(previousTimes) && previousTimes.slice().reverse().map((time, index) => (
-                                <li key={index}>{time}</li>
-                            ))}
-                        </ul>
+                        previousTimes.length > 0 ? (
+                            <ul>
+                                {Array.isArray(previousTimes) &&
+                                    previousTimes.slice().reverse().map((time, index) => (
+                                        <li key={index}>{time}</li>
+                                    ))}
+                            </ul>
+                        ) : (
+                            <p>There are no times currently</p>
+                        )
                     )}
                 </div>
             </div>
@@ -61,30 +68,5 @@ const ShowTimesButton = () => {
         </div>
     );
 };
-
-// return (
-//     <div className="home-container">
-//         <div className='home-grid'>
-//             <h1 className="home-title">Add Time(Page One)</h1>
-//             <div className="button-grid three-btn">
-//                 <button className="action-button" onClick={handleNavigatePageOne}>
-//                     Page 1
-//                 </button>
-//                 <button className="action-button" onClick={handleNavigateHome}>
-//                     Go Home
-//                 </button>
-//                 <button className="action-button" onClick={() => setShowTimes(true)}>Show All Times</button>
-//             </div>
-//         </div>
-//         {showTimes && (
-//             <ul>
-//                 {previousTimes.map((time, index) => (
-//                     <li key={index}>{time}</li>
-//                 ))}
-//             </ul>
-//         )}
-//     </div>
-// );
-// };
 
 export default ShowTimesButton;

@@ -29,7 +29,7 @@ export const setupStore = (preloadedState) => {
             return getDefaultMiddleware({
                 serializableCheck: {
                     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-                    ignoredPaths: ['register', 'rehydrate'], // Add this line
+                    ignoredPaths: ['register', 'rehydrate'],
                 },
             }).concat(isLocal ? logger : []);
         }

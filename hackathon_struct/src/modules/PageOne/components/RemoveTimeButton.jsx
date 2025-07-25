@@ -35,7 +35,7 @@ const RemoveTimeButton = () => {
     return (
         <div className="home-container">
             <div className='home-grid'>
-                <h1 className="home-title">Remove Times (Page One)</h1>
+                <h1 className="home-title">Remove Time (Page One)</h1>
                 <div className="button-grid three-btn">
                     <div className="button-with-label">
                         <button className="action-button" onClick={handleNavigateHome}>
@@ -54,8 +54,10 @@ const RemoveTimeButton = () => {
                         </button>
                     </div>
                 </div>
-                <div className="action-text">
+            </div>
 
+            <div className='results-flex'>
+                <div className="results-text">
                     {
                         showRemoved && (
                             lastTimeRemoved ? (
@@ -66,7 +68,6 @@ const RemoveTimeButton = () => {
                     }
                 </div>
             </div>
-
 
         </div>
     );

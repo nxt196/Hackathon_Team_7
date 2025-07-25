@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import DashboardHome from './modules/DashboardHome';
 import PageOne from 'modules/PageOne';
 import PageTwo from 'modules/PageTwo';
+import './common/styles.css';
 
 
 
@@ -21,10 +22,6 @@ function App() {
             path: '/page-two',
             element: <PageTwo></PageTwo>,
         },
-        // {
-        //     path: '/pageTwo',
-        //     element: <PageTwo></PageTwo>,
-        // },
     ]);
 
     return (

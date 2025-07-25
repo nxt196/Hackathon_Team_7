@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCurrentTime } from 'store/thunks/dashboardhome-thunk';
 import { getAllTimes } from 'store/thunks/dashboardhome-thunk';
-
 import { useNavigate } from 'react-router-dom';
 import 'common/styles.css'
 
@@ -56,7 +55,9 @@ const AddTimeButton = () => {
                         </button>
                     </div>
                 </div>
-                <div className="action-text">
+            </div>
+            <div className='results-flex'>
+                <div className="results-text">
                     {
                         showAdd && (
                             currentTime ? (
@@ -68,11 +69,8 @@ const AddTimeButton = () => {
                     }
                 </div>
             </div>
-
-
         </div >
     );
-
 };
 
 export default AddTimeButton;
