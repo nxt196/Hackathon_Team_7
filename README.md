@@ -95,8 +95,11 @@ npm run dev
 ```bash
 http://localhost:5173/
 ```
+>Or whatever your local development server address is
 
-You should now see the starter template running.
+- You should now see the starter template app running.
+
+<img width="1908" height="712" alt="image" src="https://github.com/user-attachments/assets/e5922d72-f7d4-4e63-8561-599927fc9a07" />
 
 <br/>
 
