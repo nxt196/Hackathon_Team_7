@@ -1,7 +1,7 @@
 
 ## 🔧 Prerequisites
 
-Before starting, ensure you have the following Node JS and Git installed:
+Before starting, ensure you have Node JS and Git installed:
 
 ### Node.js
 
