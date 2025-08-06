@@ -83,7 +83,7 @@ node server.mjs
 - Open another new terminal.
 - Navigate to the `hackathon_struct` folder:
 ```bash
-cd ..
+cd hackathon_struct
 npm run dev
 ```
 <img width="1626" height="415" alt="image" src="https://github.com/user-attachments/assets/d05b4f6b-bc83-4b57-b2a8-ce9a407b9cd4" />
