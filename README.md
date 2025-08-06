@@ -1,5 +1,5 @@
 
-## 🔧 Prerequisites
+## ⚙️ Prerequisites
 
 Before starting, ensure you have Node JS and Git installed:
 
@@ -41,7 +41,7 @@ git clone https://github.com/your-username/your-repo-name.git
 ```
 <br/>
 
-## 🛠️ Project Setup
+## 🧭 Project Setup
 
 ### 1. Open in VSCode
 
@@ -63,7 +63,7 @@ npm install
 ```
 <br/>
 
-## 🧩 Running the Project
+## 👟 Running the Project
 ⚠️ Important: The server.mjs must be running for the app to function correctly
 
 > I would reccomend using two terminals, one for the app, one for the server.
@@ -107,7 +107,7 @@ http://localhost:5173/
 
 This template provides a starter structure for a **Time Tracking Single Page Application (SPA)**. You can customize or remove parts as needed depending on your project goals.
 
-### ✅ Safe to Remove Files/Subfolders for a Fresh Slate
+### Safe to Remove Files/Subfolders for a Fresh Slate
 - `src/api/`
 - `src/common/`
 - `src/modules/`
@@ -116,25 +116,28 @@ This template provides a starter structure for a **Time Tracking Single Page App
 
 You may delete the **contents** of these folders, but it's recommended to to **keep the folder structure intact** for organizational purposes and to maintain compatibility with the existing file layout.
 
-### ⚙️ Recommended to Modify (Not Remove)
+### Recommended to Modify (Not Remove)
 
 - `src/index.jsx`
-- `store/index.jsx`
-- `jsconfig.json`
+- `src/App.jsx`
+- `src/server.jsx`
+- `src/store/index.jsx`
+- `hackathon_struct/jsconfig.json`
 
-These files contain core setup logic and path aliases that may be helpful to retain and adjust rather than delete entirely.
 
-> 💡 You can always refer back to this template repo if you're unsure about the structure or setup.
+These files contain core setup logic, path aliases, and routing logic that may be helpful to retain and adjust rather than delete entirely.
+
+> You can always refer back to this template repo if you're unsure about the structure or setup.
 
 ## 🧠 Tips & Notes
-- ✅ Always ensure you're in the correct directory before running commands.
+  -  Always ensure you're in the correct directory before running commands.
   - The **React app** runs from the `hackathon_struct` directory.
   - The **API server** runs from the `src` directory.
 
-- ⚠️ The server must be running for the app to function properly.
+-  The server must be running for the app to function properly.
 
-- 🧭 Use this template repo as a reference if you're unsure about the structure or setup.
+-  Use this template repo as a reference if you're unsure about the structure or setup.
 
-- 🛠️ You can customize the file structure to fit your project, but the provided layout is optimized for quick development using Vite, React, Redux Toolkit, and Express.
+-  You can customize the file structure to fit your project, but the provided layout is optimized for quick development using Vite, React, Redux Toolkit, and Express.
 
 
