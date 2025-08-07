@@ -4,6 +4,7 @@ import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 
 
+
 const port = 4000;
 const app = express();
 app.use(express.json());
@@ -19,12 +20,20 @@ const testDBConnection = async () => {
         const db = await dbPromise;
         const result = await db.all('SELECT name FROM sqlite_master WHERE type="table"');
         console.log('Connected to DB. Tables:', result);
+        const skus = await getAllSkus();
+        console.log(skus)
     } catch (err) {
         console.error('Failed to connect to DB:', err);
     }
 };
 
 testDBConnection();
+
+export const getAllSkus = async () => {
+    const db = await dbPromise;
+    return await db.all('SELECT * FROM skus');
+};
+
 
 
 
@@ -42,9 +51,9 @@ app.get('/', (_, res) => {
 });
 
 app.get('/getTime', (_, res) => {
-console.log('Updated times:', timeCheck.previousTimes);
+    console.log('Updated times:', timeCheck.previousTimes);
 
-res.json({ previousTimes: timeCheck.previousTimes });
+    res.json({ previousTimes: timeCheck.previousTimes });
 
 });
 
@@ -65,6 +74,15 @@ app.post('/removetime', (_, res) => {
     console.log('Times After Pop:', timeCheck.previousTimes);
     res.json({times_pre_remove, last_time, previousTimes: timeCheck.previousTimes})
 })
+
+app.get('/api/skus', async (_, res) => {
+    try {
+        const skus = await getAllSkus();
+        res.json({ skus });
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch SKUs', details: err.message });
+    }
+});
 
 
 

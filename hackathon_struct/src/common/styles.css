@@ -125,6 +125,23 @@ li:not(:last-child) {
   list-style-type: none;
   margin-bottom: 0.3rem;
 }
+.sku-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.sku-table th,
+.sku-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.sku-table th {
+  background-color: #f4f4f4;
+}
+
 
 
 
