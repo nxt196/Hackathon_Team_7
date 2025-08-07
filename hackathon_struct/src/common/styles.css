@@ -142,6 +142,10 @@ li:not(:last-child) {
   background-color: #f4f4f4;
 }
 
+.alert-row {
+  background-color: #f0391d;
+}
+
 
 
 

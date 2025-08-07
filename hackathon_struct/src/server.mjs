@@ -22,6 +22,20 @@ const testDBConnection = async () => {
         console.log('Connected to DB. Tables:', result);
         const skus = await getAllSkus();
         console.log(skus)
+
+        const skusWithAlerts = await db.all(`
+      SELECT 
+        skus.*, 
+        alerts.alert_message AS alert_message
+      FROM skus
+      LEFT JOIN alerts ON alerts.sku_id = skus.sku_id
+    `);
+
+        console.log("SKUs with alerts:");
+        skusWithAlerts.forEach((sku) => {
+            console.log(`SKU ID: ${sku.sku_id}, Product: ${sku.product_name}, Alert: ${sku.alert_message || "None"}`);
+        });
+
     } catch (err) {
         console.error('Failed to connect to DB:', err);
     }
@@ -33,6 +47,7 @@ export const getAllSkus = async () => {
     const db = await dbPromise;
     return await db.all('SELECT * FROM skus');
 };
+
 
 
 
@@ -77,12 +92,20 @@ app.post('/removetime', (_, res) => {
 
 app.get('/api/skus', async (_, res) => {
     try {
-        const skus = await getAllSkus();
-        res.json({ skus });
+        const db = await dbPromise;
+        const skusWithAlerts = await db.all(`
+            SELECT
+                skus.*,
+                alerts.alert_message AS alert_message
+            FROM skus
+                     LEFT JOIN alerts ON skus.sku_id = alerts.sku_id
+        `);
+        res.json({ skus: skusWithAlerts });
     } catch (err) {
-        res.status(500).json({ error: 'Failed to fetch SKUs', details: err.message });
+        res.status(500).json({ error: 'Failed to fetch SKUs with alerts', details: err.message });
     }
 });
+
 
 
 
