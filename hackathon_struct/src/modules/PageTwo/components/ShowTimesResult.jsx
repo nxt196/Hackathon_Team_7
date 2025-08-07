@@ -27,18 +27,32 @@ const ShowTimesResult = () => {
         if (!sortConfig.key) return skus;
 
         return [...skus].sort((a, b) => {
-            const aVal = a[sortConfig.key];
-            const bVal = b[sortConfig.key];
+            const { key, direction } = sortConfig;
+
+            // Special case for alert_message sorting
+            if (key === "alert_message") {
+                const aHasAlert = !!a.alert_message;
+                const bHasAlert = !!b.alert_message;
+
+                if (aHasAlert === bHasAlert) return 0;
+                return direction === "asc"
+                    ? aHasAlert - bHasAlert
+                    : bHasAlert - aHasAlert;
+            }
+
+            const aVal = a[key];
+            const bVal = b[key];
 
             if (typeof aVal === "string") {
-                return sortConfig.direction === "asc"
+                return direction === "asc"
                     ? aVal.localeCompare(bVal)
                     : bVal.localeCompare(aVal);
             } else {
-                return sortConfig.direction === "asc" ? aVal - bVal : bVal - aVal;
+                return direction === "asc" ? aVal - bVal : bVal - aVal;
             }
         });
     }, [skus, sortConfig]);
+
 
     const handleSort = (key) => {
         setSortConfig((prev) => ({
@@ -70,9 +84,9 @@ const ShowTimesResult = () => {
                         <tbody>
                         {sortedSkus.map((sku) => (
                             <tr key={sku.sku_id} className={sku.alert_message ? "alert-row" : ""}>
+                                <td>{sku.alert_message || "—"}</td>
                                 <td>{sku.sku_id}</td>
                                 <td>{sku.product_name}</td>
-                                <td>{sku.alert_message || "—"}</td>
                                 <td>{sku.product_number}</td>
                                 <td>{sku.destination}</td>
                                 <td>{sku.remortgage_gallons}</td>
@@ -81,6 +95,7 @@ const ShowTimesResult = () => {
                             </tr>
                         ))}
                         </tbody>
+
                     </table>
                 ) : (
                     <p>No SKUs found.</p>
