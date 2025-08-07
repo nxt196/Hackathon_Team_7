@@ -9,7 +9,7 @@ const ShowAlertsResult = () => {
     const [sortConfig, setSortConfig] = useState({ key: "alert_message", direction: "desc" });
 
     useEffect(() => {
-        fetch("http://localhost:4000/api/production_pipeline")
+        fetch("http://localhost:4000/api/skus")
             .then((res) => {
                 if (!res.ok) throw new Error("Network response was not ok");
                 return res.json();
