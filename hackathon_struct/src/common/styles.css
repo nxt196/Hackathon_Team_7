@@ -2,7 +2,7 @@
 
 
 body{
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", comic sans-serif;
   background-color: rgba(234, 237, 241, 0.89);
 }
 
@@ -23,7 +23,7 @@ display: flex;
 background-image: linear-gradient(to bottom, #107cca, #022966 100%);
 margin-top: 6.4rem;
 border-radius: 0.5rem 0.5rem 0rem 0rem;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .button-grid{

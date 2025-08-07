@@ -1,10 +1,31 @@
 import express from 'express';
 import cors from 'cors';
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
+
 
 const port = 4000;
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+const dbPromise = open({
+    filename: './db/warehouse_data.db',
+    driver: sqlite3.Database
+});
+
+const testDBConnection = async () => {
+    try {
+        const db = await dbPromise;
+        const result = await db.all('SELECT name FROM sqlite_master WHERE type="table"');
+        console.log('Connected to DB. Tables:', result);
+    } catch (err) {
+        console.error('Failed to connect to DB:', err);
+    }
+};
+
+testDBConnection();
+
 
 
 let timeCheck = {
@@ -22,7 +43,7 @@ app.get('/', (_, res) => {
 
 app.get('/getTime', (_, res) => {
 console.log('Updated times:', timeCheck.previousTimes);
-    
+
 res.json({ previousTimes: timeCheck.previousTimes });
 
 });
