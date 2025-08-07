@@ -3,7 +3,7 @@
 body {
     margin: 0;
     font-family: Garamond, serif;
-    background-color: #F9F7F7;
+    background-color: #000000;
     color: #112D4E;
 }
 
@@ -99,16 +99,17 @@ body {
     gap: 1rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
+    /*border-radius: 16px;*/
 }
 
 .kanban-panel,
 .right-panel {
     flex: 1;
-    /*padding: 0 1rem 0 1rem;*/
     background-color: #112D4E;
     color: #FFFFFF;
-    /*border: 2px solid #3F72AF;*/
-    /*border-radius: 8px;*/
+    border: 2px solid #3F72AF;
+    border-radius: 16px;
+    /*border: 2px solid red;*/
     min-width: 250px;
 }
 
