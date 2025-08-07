@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { getAllTimes } from "store/thunks/pageTwo-thunk";
 import "common/styles.css";
 import PageTwoGrid from "./components/PageTwoGrid";
-import ShowTimesResult from "./components/ShowTimesResult";
+import ShowTimesResult from "./components/ShowAlertsResult.jsx";
 
 const PageTwo = () => {
   const dispatch = useDispatch();

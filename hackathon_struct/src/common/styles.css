@@ -1,41 +1,38 @@
-
-
-
-body{
-  font-family: "Inter", comic sans-serif;
-  background-color: rgba(234, 237, 241, 0.89);
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #DBE2EF;
+  color: #F9F7F7;
 }
 
 /* ------------------------ */
 /* Main Content Containers */
 /* ------------------------ */
 .home-container {
-  width: 960px;
-  margin: 0 auto;
+  width: auto;
 }
 
-.home-grid{
-width: 100% !important;
-justify-content: center;
-flex-wrap: wrap;
-flex-direction: column;
-display: flex;
-background-image: linear-gradient(to bottom, #107cca, #022966 100%);
-margin-top: 6.4rem;
-border-radius: 0.5rem 0.5rem 0rem 0rem;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.home-grid {
+  width: 100% !important;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  display: flex;
+  background-color: #112D4E;
+  margin-top: 2rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.button-grid{
-grid-template-columns: 1fr 1fr ;
-row-gap: 8px;
-column-gap: 8px;
-display: grid;
-justify-items: center;
+.button-grid {
+  grid-template-columns: 1fr 1fr;
+  row-gap: 8px;
+  column-gap: 8px;
+  display: grid;
+  justify-items: center;
 }
 
-.button-grid.three-btn{
-grid-template-columns: 1fr 1fr 1fr ;
+.button-grid.two-btn {
+  grid-template-columns: 1fr 1fr;
 }
 
 /* ------------------------ */
@@ -44,30 +41,31 @@ grid-template-columns: 1fr 1fr 1fr ;
 .home-title {
   font-size: 2rem;
   font-weight: bold;
-  color: rgb(224, 226, 226);
+  color: #F9F7F7;
   margin-bottom: 1.5rem;
   text-align: center;
 }
+
 .action-button {
-  background-color: #ffffff;
-  border: 2px solid #d1d5db;
+  background-color: #3F72AF;
+  border: 2px solid #F9F7F7;
   border-radius: 3px;
   padding: 1.5rem;
   text-align: center;
-  font-weight: 500;
-  color: rgb(70, 69, 69);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  color: #F9F7F7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   width: 100%;
   max-width: 200px;
   font-size: 0.8rem;
-  font-weight:bold;
 }
 
 .action-button:hover {
-  background-color: #e5f0ff;
-  border-color: rgba(57, 144, 216, 0.699);
+  background-color: #DBE2EF;
+  border-color: #3F72AF;
+  color: #112D4E;
   transform: translateY(-2px);
 }
 
@@ -75,71 +73,79 @@ grid-template-columns: 1fr 1fr 1fr ;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .button-label {
   margin-top: 0.2rem;
   font-size: 0.85rem;
-  color: rgba(172, 171, 171, 0.563);
+  color: #F9F7F7;
   font-weight: 600;
   font-style: oblique;
   text-align: center;
   max-width: 200px;
 }
 
-
-
 /* ------------------------ */
 /* Results Styles */
 /* ------------------------ */
-.results-flex{
-  background-image: linear-gradient(to bottom, #022966, #107cca  100%);
+.results-flex {
+  background-color: #112D4E;
   display: flex;
-  margin-top: 0.6rem;
   justify-content: center;
-  justify-items: center;
   align-items: center;
-  border-radius: 0rem 0rem 0.5rem 0.5rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
+
 .results-text {
   width: 100%;
-  color: rgb(224, 226, 226);
+  color: #F9F7F7;
   display: flex;
   justify-content: center;
-
 }
 
 .results-text ul {
   text-align: center;
   padding-inline-start: 0rem;
   margin-block-end: 0.2rem;
-  margin-block-start: 0.5rem
-
+  margin-block-start: 0.5rem;
 }
 
-li{
+li {
   list-style-type: none;
 }
 
 li:not(:last-child) {
-  list-style-type: none;
-  margin-bottom: 0.3rem;
+  /*margin-bottom: 0.3rem;*/
 }
+
 .sku-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
 }
 
 .sku-table th,
 .sku-table td {
-  border: 1px solid #ccc;
+  border: 1px solid #3F72AF;
   padding: 0.5rem;
   text-align: left;
 }
 
 .sku-table th {
-  background-color: #f4f4f4;
+  background-color: #3F72AF;
+  color: #F9F7F7;
+  font-weight: bold;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-bottom: 2px solid #112D4E;
+}
+
+.sku-table td {
+  color: #F9F7F7;
+  font-size: 0.85rem;
+  padding: 0.5rem;
+  border: 1px solid #3F72AF;
 }
 
 .alert-row {
@@ -147,21 +153,8 @@ li:not(:last-child) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.sku-table tr:hover {
+  background-color: #3F72AF;
+  color: #112D4E;
+  cursor: pointer;
+}

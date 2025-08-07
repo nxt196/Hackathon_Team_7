@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { FiAlertTriangle } from "react-icons/fi";
 import "common/styles.css";
 
-const ShowTimesResult = () => {
+const ShowAlertsResult = () => {
     const [skus, setSkus] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
+    const [sortConfig, setSortConfig] = useState({ key: "alert_message", direction: "desc" });
 
     useEffect(() => {
-        fetch("http://localhost:4000/api/skus")
+        fetch("http://localhost:4000/api/production_pipeline")
             .then((res) => {
                 if (!res.ok) throw new Error("Network response was not ok");
                 return res.json();
@@ -29,15 +30,19 @@ const ShowTimesResult = () => {
         return [...skus].sort((a, b) => {
             const { key, direction } = sortConfig;
 
-            // Special case for alert_message sorting
             if (key === "alert_message") {
-                const aHasAlert = !!a.alert_message;
-                const bHasAlert = !!b.alert_message;
+                const priority = (msg) => {
+                    if (msg === "Low days of service") return 2;
+                    if (msg === "SKU has been staged for over 48 hours") return 1;
+                    return 0;
+                };
 
-                if (aHasAlert === bHasAlert) return 0;
+                const aPriority = priority(a.alert_message);
+                const bPriority = priority(b.alert_message);
+
                 return direction === "asc"
-                    ? aHasAlert - bHasAlert
-                    : bHasAlert - aHasAlert;
+                    ? aPriority - bPriority
+                    : bPriority - aPriority;
             }
 
             const aVal = a[key];
@@ -52,7 +57,6 @@ const ShowTimesResult = () => {
             }
         });
     }, [skus, sortConfig]);
-
 
     const handleSort = (key) => {
         setSortConfig((prev) => ({
@@ -84,7 +88,8 @@ const ShowTimesResult = () => {
                         <tbody>
                         {sortedSkus.map((sku) => (
                             <tr key={sku.sku_id} className={sku.alert_message ? "alert-row" : ""}>
-                                <td>{sku.alert_message || "—"}</td>
+                                <td>{sku.alert_message && <FiAlertTriangle />}
+                                    {sku.alert_message || "—"}</td>
                                 <td>{sku.sku_id}</td>
                                 <td>{sku.product_name}</td>
                                 <td>{sku.product_number}</td>
@@ -95,7 +100,6 @@ const ShowTimesResult = () => {
                             </tr>
                         ))}
                         </tbody>
-
                     </table>
                 ) : (
                     <p>No SKUs found.</p>
@@ -105,4 +109,4 @@ const ShowTimesResult = () => {
     );
 };
 
-export default ShowTimesResult;
+export default ShowAlertsResult;

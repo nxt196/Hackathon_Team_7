@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAllTimes } from "store/thunks/dashboardhome-thunk";
 import { useNavigate } from "react-router-dom";
-import "common/styles.css";
+import 'common/dashboard.css'
+import PageTwoGrid from "modules/PageTwo/components/PageTwoGrid.jsx";
+import ShowAlertsResult from "modules/PageTwo/components/ShowAlertsResult.jsx";
+import ShowPipelineResult from "modules/PageTwo/components/ShowBacklog.jsx";
 
 const DashboardHomeGrid = ({ onAddTime }) => {
   const navigate = useNavigate();
@@ -19,28 +22,43 @@ const DashboardHomeGrid = ({ onAddTime }) => {
     navigate("/page-two");
   };
 
-  return (
-    <div className="home-grid">
-      <h1 className="home-title">Home Page</h1>
-      <div className="button-grid three-btn">
-        <div className="button-with-label">
-          <button className="action-button" onClick={handleNavigatePageOne}>
-            Remove Last Time Page
-          </button>
-        </div>
-        <div className="button-with-label">
-          <button className="action-button" onClick={onAddTime}>
-            Add Current Time
-          </button>
-          <p className="button-label"> Click to add a time</p>
-        </div>
-        <div className="button-with-label">
-          <button className="action-button" onClick={handleNavigatePageTwo}>
-            Show All Times Page
-          </button>
+  return  (
+      <div className="dashboard-container">
+        {/* Top Header */}
+        <header className="dashboard-header">
+
+          {/* Dashboard Title */}
+          <div className="header-buttons">
+            <button onClick={handleNavigatePageOne}>Page One</button>
+            <button onClick={handleNavigatePageTwo}>Page Two</button>
+          </div>
+          {/* Profile Section */}
+          <div className="dashboard-profile">
+            <div className="profile-icon">LH</div>
+            <div className="profile-label">Profile</div>
+          </div>
+        </header>
+
+        {/* Main Layout */}
+        <div className="dashboard-main">
+
+          {/* Content Area */}
+          <main className="dashboard-content">
+
+
+
+            {/* Panels */}
+            <div className="dashboard-panels">
+              <section className="kanban-panel">
+              <ShowPipelineResult />
+              </section>
+              <section className="right-panel"><ShowAlertsResult/></section>
+
+            </div>
+            <section className="bottom-panel">Bottom Panel</section>
+          </main>
         </div>
       </div>
-    </div>
   );
 };
 

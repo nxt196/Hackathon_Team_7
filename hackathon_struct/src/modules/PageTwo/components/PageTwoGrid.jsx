@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 import { getAllTimes } from "store/thunks/pageTwo-thunk";
 import { useNavigate } from "react-router-dom";
 import "common/styles.css";
-const PageTwoGrid = ({ handleShowTimes }) => {
+import { FaArrowLeft } from "react-icons/fa6";
+
+const PageTwoGrid = ({  }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,21 +24,12 @@ const PageTwoGrid = ({ handleShowTimes }) => {
 
   return (
     <div className="home-grid">
-      <h1 className="home-title">Show All Times(Page Two)</h1>
+      <h1 className="home-title">All SKUs</h1>
       <div className="button-grid three-btn">
         <div className="button-with-label">
           <button className="action-button" onClick={handleNavigateHome}>
-            Go Home
+            <FaArrowLeft /> Go Home
           </button>
-        </div>
-        <div className="button-with-label">
-          <button
-            className="action-button"
-            onClick={() => handleShowTimes(true)}
-          >
-            Show All Times
-          </button>
-          <p className="button-label">Click to show all times</p>
         </div>
         <div className="button-with-label">
           <button className="action-button" onClick={handleNavigatePageOne}>

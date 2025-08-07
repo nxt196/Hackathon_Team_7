@@ -23,19 +23,6 @@ const testDBConnection = async () => {
         const skus = await getAllSkus();
         console.log(skus)
 
-        const skusWithAlerts = await db.all(`
-      SELECT 
-        skus.*, 
-        alerts.alert_message AS alert_message
-      FROM skus
-      LEFT JOIN alerts ON alerts.sku_id = skus.sku_id
-    `);
-
-        console.log("SKUs with alerts:");
-        skusWithAlerts.forEach((sku) => {
-            console.log(`SKU ID: ${sku.sku_id}, Product: ${sku.product_name}, Alert: ${sku.alert_message || "None"}`);
-        });
-
     } catch (err) {
         console.error('Failed to connect to DB:', err);
     }
@@ -105,6 +92,20 @@ app.get('/api/skus', async (_, res) => {
         res.status(500).json({ error: 'Failed to fetch SKUs with alerts', details: err.message });
     }
 });
+
+app.get('/api/pipeline', async (_, res) => {
+    try {
+        const db = await dbPromise;
+        const pipelineData = await db.all(`
+            SELECT *
+            FROM production_pipeline
+        `);
+        res.json({ production_pipeline: pipelineData });
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch production pipeline data', details: err.message });
+    }
+});
+
 
 
 
