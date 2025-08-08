@@ -88,7 +88,7 @@ const ShowAlertsResult = () => {
                         <tbody>
                         {sortedSkus.map((sku) => (
                             <tr key={sku.sku_id} className={sku.alert_message ? "alert-row" : ""}>
-                                <td>{sku.alert_message && <FiAlertTriangle />}
+                                <td>{sku.alert_message== 'Low days of service' ? <FiAlertTriangle style={{color: 'red', marginRight: '8px'}} /> : sku.alert_message== 'SKU has been staged for over 48 hours' ? <FiAlertTriangle style={{color: 'yellow', marginRight: '8px'}} /> : null}
                                     {sku.alert_message || "—"}</td>
                                 <td>{sku.sku_id}</td>
                                 <td>{sku.product_name}</td>

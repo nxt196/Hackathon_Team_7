@@ -1,10 +1,9 @@
-
 /* Base Styles */
 body {
     margin: 0;
     font-family: Garamond, serif;
-    background-color: #27282b;
-    color: #112D4E;
+    background-color: #29485D; /* Updated from #000000 */
+    color: black;
 }
 
 /* Container */
@@ -19,32 +18,34 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3F72AF;
-    color: #F9F7F7;
+    background-color: #2A4D60;
+    color: black;
     padding: 1rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Header Buttons */
-.header-buttons button {
-    margin-left: 0.75rem;
-    padding: 0.5rem 1rem;
-    background-color: #DBE2EF;
-    color: #112D4E;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.header-buttons {
+  display: flex;
+  gap: 1rem;
 }
 
-.header-buttons button:hover,
-.header-buttons button:focus {
-    background-color: #3F72AF;
-    color: #F9F7F7;
-    outline: none;
+.nav-link {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none; /* No underline by default */
+  padding: 0.5rem 0;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
+
+.nav-link:hover,
+.nav-link:focus {
+  text-decoration: underline; /* Underline on hover */
+  color: #3F72AF; /* Optional: change color on hover */
+}
+
+
 
 /* Profile Section */
 .dashboard-profile {
@@ -90,7 +91,7 @@ body {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: #112D4E;
+    color: #2e5d92;
 }
 
 /* Panels */
@@ -101,29 +102,24 @@ body {
     flex-wrap: wrap;
 }
 
-.kanban-panel,
-.right-panel {
+.kanban-panel{
     display: flex;
-    background-color: #112D4E;
-    color: #FFFFFF;
-    border: 2px solid #3F72AF;
+    color: white;
+    background-color: #2A4D60;
     border-radius: 16px;
     min-height: 50px;
     min-width: 300px;
     align-items: center;
     justify-content: center;
     flex: 1;
-    margin: 0 0 5rem 0
+    margin: 0 0 5rem 0;
 }
-
-
-
 
 .bottom-panel {
     padding: 1rem;
-    background-color: #112D4E;
-    color: #112D4E;
-    border: 2px solid #3F72AF;
+    background-color: #F7FBFC;
+    color: black;
+    border: 2px solid #112D4E;
     border-radius: 8px;
     margin-bottom: 1rem;
 }

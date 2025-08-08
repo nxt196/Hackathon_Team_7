@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAllTimes } from "store/thunks/dashboardhome-thunk";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import 'common/dashboard.css'
 import PageTwoGrid from "modules/PageTwo/components/PageTwoGrid.jsx";
 import ShowAlertsResult from "modules/PageTwo/components/ShowAlertsResult.jsx";
@@ -16,23 +16,18 @@ const DashboardHomeGrid = ({ onAddTime }) => {
     dispatch(getAllTimes());
   }, [dispatch]);
 
-  const handleNavigatePageOne = () => {
-    navigate("/page-one");
-  };
-  const handleNavigatePageTwo = () => {
-    navigate("/page-two");
-  };
 
   return  (
       <div className="dashboard-container">
         {/* Top Header */}
         <header className="dashboard-header">
 
-          {/* Dashboard Title */}
-          <div className="header-buttons">
-            <button onClick={handleNavigatePageOne}>Page One</button>
-            <button onClick={handleNavigatePageTwo}>Page Two</button>
-          </div>
+        {/* Navigation Bar */}
+        <nav className="header-buttons">
+          <Link to="/page-one" className="nav-link">Page One</Link>
+          <Link to="/page-two" className="nav-link">Page Two</Link>
+        </nav>
+
           {/* Profile Section */}
           <div className="dashboard-profile">
             <div className="profile-icon">LH</div>
@@ -49,13 +44,13 @@ const DashboardHomeGrid = ({ onAddTime }) => {
 
               {/* Left column: 4 evenly spaced boxes */}
               <div className="flex flex-col justify-between w-1/4 h-full">
-                <section className="kanban-panel">🔔 You have # Alerts!!</section>
-                <section className="kanban-panel">View all SKUs</section>
-                <section className="kanban-panel">View by Warehouse</section>
-                <section className="kanban-panel">View by asdfasdf</section>
-                <section className="kanban-panel">View by asdfasdf</section>
-                <section className="kanban-panel">View by asdfasdf</section>
-                <section className="kanban-panel">View by asdfasdf</section>
+                <button className="kanban-panel">🔔 You have # Alerts!!</button>
+                <button className="kanban-panel">View all SKUs</button>
+                <button className="kanban-panel">View by Warehouse</button>
+                <button className="kanban-panel">View by asdfasdf</button>
+                <button className="kanban-panel">View by asdfasdf</button>
+                <button className="kanban-panel">View by asdfasdf</button>
+                <button className="kanban-panel">View by asdfasdf</button>
               </div>
 
               {/* Right column: fills remaining space */}
