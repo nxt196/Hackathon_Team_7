@@ -90,7 +90,6 @@ body {
 /* Results Styles */
 /* ------------------------ */
 .results-flex {
-  background-color: #112d4e;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,6 +118,10 @@ li:not(:last-child) {
   /*margin-bottom: 0.3rem;*/
 }
 
+.alert-header {
+  background-color: transparent;
+}
+
 .sku-table {
   width: 100%;
   border-collapse: collapse;
@@ -127,7 +130,7 @@ li:not(:last-child) {
 .sku-table th,
 .sku-table td {
   /*border: 1px solid #536B79;*/
-  border: 1px solid #3f72af;
+  border: 1px solid #536B79;
   padding: 0.5rem;
   text-align: left;
 }
@@ -154,19 +157,16 @@ li:not(:last-child) {
 .sku-table tr:hover td {
   background-color: #536B79;
   color: white;
-  border-bottom: 2px solid #112d4e;
+  border-bottom: 2px solid #536B79;
 }
 
 .sku-table td {
   color: #f9f7f7;
   font-size: 0.85rem;
   padding: 0.5rem;
-  border: 1px solid #3f72af;
+  border: 1px solid #536B79;
 }
 
-.alert-row {
-  background-color: #f0391d;
-}
 
 .sku-table tr:hover {
   background-color: #3f72af;
