@@ -76,7 +76,6 @@ const ShowAllSkus = () => {
                         <table className="sku-table">
                             <thead>
                             <tr>
-                                {/*<th onClick={() => handleSort('alert_message')}>Alert</th>*/}
                                 <th onClick={() => handleSort('sku_id')}>SKU ID</th>
                                 <th onClick={() => handleSort('product_name')}>Product Name</th>
                                 <th onClick={() => handleSort('product_number')}>Product Number</th>
