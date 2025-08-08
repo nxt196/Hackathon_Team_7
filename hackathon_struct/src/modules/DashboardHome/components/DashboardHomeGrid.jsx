@@ -7,6 +7,7 @@ import ShowAlertsResult from 'modules/PageTwo/components/ShowAlertsResult.jsx';
 import { FiAlertCircle } from 'react-icons/fi';
 import CircleGraph from "modules/DashboardHome/components/CircleGraph.jsx";
 import ThreeHourCountdown from 'modules/DashboardHome/components/ThreeHourCountdown.jsx';
+import ShipmentsSummary from "modules/DashboardHome/components/ShipmentsSummary.jsx";
 
 const DashboardHomeGrid = () => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ const DashboardHomeGrid = () => {
 
         {/* Profile Section */}
         <div className="dashboard-profile">
-          <div className="profile-icon">ME</div>
+          <div className="profile-icon"><img alt='sw icon' src='../../../../public/favicon.ico'/></div>
         </div>
       </header>
 
@@ -59,8 +60,12 @@ const DashboardHomeGrid = () => {
                 <CircleGraph />
               </section>
               <section className="kanban-panel">
+                <ShipmentsSummary />
+              </section>
+              <section className="kanban-panel">
                 <ThreeHourCountdown />
               </section>
+
             </div>
 
             {/* Right column */}

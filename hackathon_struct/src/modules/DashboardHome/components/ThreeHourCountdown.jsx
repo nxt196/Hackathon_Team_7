@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
-const ThreeHourCountdown = () => {
+const ThreeHourCountUp = () => {
   const THREE_HOURS_IN_MS = 3 * 60 * 60 * 1000;
 
-  const getRemainingTime = () => {
+  const getElapsedTime = () => {
     const now = Date.now();
-    const timeSinceEpoch = now % THREE_HOURS_IN_MS;
-    return THREE_HOURS_IN_MS - timeSinceEpoch;
+    return now % THREE_HOURS_IN_MS;
   };
 
-  const [timeLeft, setTimeLeft] = useState(getRemainingTime());
+  const [elapsedTime, setElapsedTime] = useState(getElapsedTime());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeLeft(getRemainingTime());
+      setElapsedTime(getElapsedTime());
     }, 1000);
 
     return () => clearInterval(interval);
@@ -29,13 +28,21 @@ const ThreeHourCountdown = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 rounded-xl shadow-md bg-[#F9F7F7] border-2 border-[#DBE2EF] text-[#112D4E] font-[Garamond]">
+      <div
+          className="max-w-md mx-auto mt-10 p-4 rounded-xl shadow-md border-2 border-[#DBE2EF] text-[#F9F7F7]"
+          style={{ fontFamily: 'Garamond, serif' }}
+      >
+
       <span className="flex items-center justify-center space-x-2 text-center">
-        <span className="text-xl font-medium text-[#3F72AF]">Update In: </span>
-        <span className="text-3xl font-bold tracking-wide">{formatTime(timeLeft)}</span>
+        <span className="text-xl font-medium text-[#DBE2EF]">
+          Time since last update:
+        </span>
+        <span className="text-3xl font-bold tracking-wide">
+          {formatTime(elapsedTime)}
+        </span>
       </span>
-    </div>
+      </div>
   );
 };
 
-export default ThreeHourCountdown;
+export default ThreeHourCountUp;

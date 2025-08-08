@@ -33,7 +33,7 @@ const PageOne = () => {
 
         {/* Profile Section */}
         <div className="dashboard-profile">
-          <div className="profile-icon">ME</div>
+          <div className="profile-icon"><img alt='sw icon' src='../../../../public/favicon.ico'/></div>
         </div>
       </header>
       <ShowWarehouseResults />

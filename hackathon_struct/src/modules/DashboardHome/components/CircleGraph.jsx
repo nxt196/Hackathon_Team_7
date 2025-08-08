@@ -15,7 +15,7 @@ const CircleGraph = ({ size = 200, strokeWidth = 40 }) => {
     let offset = 0;
 
     return (
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', fontFamily: 'Garamond, serif' }}>
             <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
                 <g transform={`rotate(-90 ${size / 2} ${size / 2})`}>
                     {data.map((item, index) => {
@@ -39,7 +39,7 @@ const CircleGraph = ({ size = 200, strokeWidth = 40 }) => {
                     })}
                 </g>
             </svg>
-            <div style={{ marginTop: '1rem', fontFamily: 'Garamond' }}>
+            <div style={{ marginTop: '1rem' }}>
                 <ul style={{ listStyle: 'none', padding: 0 }}>
                     {data.map((item, index) => (
                         <li key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
