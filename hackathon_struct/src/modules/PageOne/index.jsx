@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getAllTimes } from 'store/thunks/pageOne-thunk';
 
-import ShowWarehouseResults from "modules/PageOne/components/ShowWarehouseResults.jsx";
+import ShowWarehouseResults from 'modules/PageOne/components/ShowWarehouseResults.jsx';
 
 const PageOne = () => {
   const dispatch = useDispatch();
