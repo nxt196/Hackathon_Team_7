@@ -120,6 +120,8 @@ li:not(:last-child) {
 
 .alert-header {
   background-color: transparent;
+  padding: 1.5rem;
+  justify-content: center;
 }
 
 .sku-table {

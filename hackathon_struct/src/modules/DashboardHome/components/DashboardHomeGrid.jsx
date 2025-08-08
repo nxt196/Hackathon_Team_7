@@ -4,10 +4,10 @@ import { getAllTimes } from 'store/thunks/dashboardhome-thunk';
 import { Link, useNavigate } from 'react-router-dom';
 import 'common/dashboard.css';
 import ShowAlertsResult from 'modules/PageTwo/components/ShowAlertsResult.jsx';
-import { FiAlertCircle } from 'react-icons/fi';
 import CircleGraph from "modules/DashboardHome/components/CircleGraph.jsx";
 import ThreeHourCountdown from 'modules/DashboardHome/components/ThreeHourCountdown.jsx';
 import ShipmentsSummary from "modules/DashboardHome/components/ShipmentsSummary.jsx";
+import AlertTooltip from "modules/DashboardHome/components/TeamsAlert.jsx";
 
 const DashboardHomeGrid = () => {
   const navigate = useNavigate();
@@ -71,6 +71,8 @@ const DashboardHomeGrid = () => {
             {/* Right column */}
             <section className="right-panel flex-1">
               <ShowAlertsResult />
+              <AlertTooltip />
+              <AlertTooltip message='Data refreshed at 12:00PM' />
             </section>
           </div>
         </main>
