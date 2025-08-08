@@ -1,9 +1,9 @@
 /* Base Styles */
 body {
-    margin: 0;
-    font-family: Garamond, serif;
-    background-color: #29485D; /* Updated from #000000 */
-    color: black;
+  margin: 0;
+  font-family: Garamond, serif;
+  background-color: #29485d; /* Updated from #000000 */
+  color: black;
 }
 
 /* Container */
@@ -15,13 +15,13 @@ body {
 
 /* Header */
 .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2A4D60;
-    color: black;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2a4d60;
+  color: black;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Header Buttons */
@@ -36,16 +36,16 @@ body {
   font-weight: bold;
   text-decoration: none; /* No underline by default */
   padding: 0.5rem 0;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  transition:
+    color 0.3s ease,
+    text-decoration 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link:focus {
   text-decoration: underline; /* Underline on hover */
-  color: #3F72AF; /* Optional: change color on hover */
+  color: #3f72af; /* Optional: change color on hover */
 }
-
-
 
 /* Profile Section */
 .dashboard-profile {
@@ -87,11 +87,11 @@ body {
 
 /* Title */
 .dashboard-title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #2e5d92;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #2e5d92;
 }
 
 /* Panels */
@@ -102,26 +102,26 @@ body {
   flex-wrap: wrap;
 }
 
-.kanban-panel{
-    display: flex;
-    color: white;
-    background-color: #2A4D60;
-    border-radius: 16px;
-    min-height: 50px;
-    min-width: 300px;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    margin: 0 0 5rem 0;
+.kanban-panel {
+  display: flex;
+  color: white;
+  background-color: #2a4d60;
+  border-radius: 16px;
+  min-height: 50px;
+  min-width: 300px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  margin: 0 0 5rem 0;
 }
 
 .bottom-panel {
-    padding: 1rem;
-    background-color: #F7FBFC;
-    color: black;
-    border: 2px solid #112D4E;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f7fbfc;
+  color: black;
+  border: 2px solid #112d4e;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
 /* Responsive Design */
