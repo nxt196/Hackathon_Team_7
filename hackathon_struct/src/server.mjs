@@ -121,6 +121,22 @@ app.get('/api/dock-status', async (_, res) => {
     }
 });
 
+app.get('/api/allskus', async (_, res) => {
+    try {
+        const db = await dbPromise;
+        const skusWithAlerts = await db.all(`
+            SELECT
+                skus.*,
+                alerts.alert_message AS alert_message
+            FROM skus
+                     LEFT JOIN alerts ON skus.sku_id = alerts.sku_id
+        `);
+        res.json({ skus: skusWithAlerts });
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch SKUs with alerts', details: err.message });
+    }
+});
+
 
 
 

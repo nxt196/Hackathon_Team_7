@@ -4,6 +4,8 @@ import { getAllTimes } from 'store/thunks/pageTwo-thunk';
 import 'common/styles.css';
 import ShowBacklog from 'modules/PageTwo/components/ShowBacklog.jsx';
 import {Link} from "react-router-dom";
+import ShowAlertsResult from "modules/PageTwo/components/ShowAlertsResult.jsx";
+import ShowAllSkus from "modules/PageThree/components/ShowAllSkus.jsx";
 
 const PageThree = () => {
   const dispatch = useDispatch();
@@ -36,7 +38,7 @@ const PageThree = () => {
           <div className="profile-label">Profile</div>
         </div>
       </header>
-      <ShowBacklog />
+    <ShowAllSkus />
     </div>
   );
 };

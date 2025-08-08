@@ -4,6 +4,7 @@ import { getAllTimes } from 'store/thunks/pageTwo-thunk';
 import 'common/styles.css';
 import ShowBacklog from 'modules/PageTwo/components/ShowBacklog.jsx';
 import {Link} from "react-router-dom";
+import ShowWarehouseResults from "modules/PageOne/components/ShowWarehouseResults.jsx";
 
 const PageTwo = () => {
   const dispatch = useDispatch();
