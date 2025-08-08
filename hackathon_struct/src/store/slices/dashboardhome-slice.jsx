@@ -1,18 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { createSlice } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 const dashboardHomeSlice = createSlice({
-  name: "dashboardHome",
+  name: 'dashboardHome',
   initialState: {
     previousTimes: [],
-    currentTime: "",
+    currentTime: '',
   },
   reducers: {
     loadCurrentTime(state, action) {
       const { currentTime } = action.payload;
       state.currentTime = currentTime;
-      console.log("State Current Time:", state.currentTime);
+      console.log('State Current Time:', state.currentTime);
     },
     addCurrentTime(state, action) {
       state.previousTimes.push(action.payload.currentTime);
@@ -20,25 +20,22 @@ const dashboardHomeSlice = createSlice({
     loadPastTimes(state, action) {
       const { previousTimes } = action.payload;
       state.previousTimes = previousTimes;
-      console.log("Dashboard Home State Previous Times:", state.previousTimes);
-      console.log("Dashboard Home Server Previous Times:", previousTimes);
+      console.log('Dashboard Home State Previous Times:', state.previousTimes);
+      console.log('Dashboard Home Server Previous Times:', previousTimes);
     },
   },
 });
 
 export const selectTimes = (state) => state.previousTimes;
 
-console.log("selectTimes Previous Times:", selectTimes);
+console.log('selectTimes Previous Times:', selectTimes);
 const localPersistConfig = {
-  key: "app",
+  key: 'app',
   storage,
 };
 
 export const dashboardHomeActions = dashboardHomeSlice.actions;
 
-const persistedDashboardHomeReducer = persistReducer(
-  localPersistConfig,
-  dashboardHomeSlice.reducer
-);
+const persistedDashboardHomeReducer = persistReducer(localPersistConfig, dashboardHomeSlice.reducer);
 
 export default persistedDashboardHomeReducer;

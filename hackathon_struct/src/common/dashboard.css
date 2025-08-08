@@ -1,136 +1,132 @@
-
 /* Base Styles */
 body {
-    margin: 0;
-    font-family: Garamond, serif;
-    background-color: #27282b;
-    color: #112D4E;
+  margin: 0;
+  font-family: Garamond, serif;
+  background-color: #27282b;
+  color: #112d4e;
 }
 
 /* Container */
 .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Header */
 .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #3F72AF;
-    color: #F9F7F7;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3f72af;
+  color: #f9f7f7;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Header Buttons */
 .header-buttons button {
-    margin-left: 0.75rem;
-    padding: 0.5rem 1rem;
-    background-color: #DBE2EF;
-    color: #112D4E;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  margin-left: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: #dbe2ef;
+  color: #112d4e;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .header-buttons button:hover,
 .header-buttons button:focus {
-    background-color: #3F72AF;
-    color: #F9F7F7;
-    outline: none;
+  background-color: #3f72af;
+  color: #f9f7f7;
+  outline: none;
 }
 
 /* Profile Section */
 .dashboard-profile {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .profile-icon {
-    background-color: #112D4E;
-    color: #F9F7F7;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #112d4e;
+  color: #f9f7f7;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .profile-label {
-    margin-left: 0.5rem;
-    font-style: italic;
+  margin-left: 0.5rem;
+  font-style: italic;
 }
 
 /* Main Layout */
 .dashboard-main {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
 }
 
 /* Content Area */
 .dashboard-content {
-    flex: 1;
-    padding: 1rem;
+  flex: 1;
+  padding: 1rem;
 }
 
 /* Title */
 .dashboard-title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #112D4E;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #112d4e;
 }
 
 /* Panels */
 .dashboard-panels {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .kanban-panel,
 .right-panel {
-    display: flex;
-    background-color: #112D4E;
-    color: #FFFFFF;
-    border: 2px solid #3F72AF;
-    border-radius: 16px;
-    min-height: 50px;
-    min-width: 300px;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    margin: 0 0 5rem 0
+  display: flex;
+  background-color: #112d4e;
+  color: #ffffff;
+  border: 2px solid #3f72af;
+  border-radius: 16px;
+  min-height: 50px;
+  min-width: 300px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  margin: 0 0 5rem 0;
 }
 
-
-
-
 .bottom-panel {
-    padding: 1rem;
-    background-color: #112D4E;
-    color: #112D4E;
-    border: 2px solid #3F72AF;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #112d4e;
+  color: #112d4e;
+  border: 2px solid #3f72af;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .dashboard-panels {
-        flex-direction: column;
-    }
+  .dashboard-panels {
+    flex-direction: column;
+  }
 }

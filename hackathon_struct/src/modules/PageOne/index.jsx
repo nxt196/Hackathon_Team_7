@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllTimes, removeLastTime } from "store/thunks/pageOne-thunk";
-import RemoveTimeResult from "./components/RemoveTimeResult";
-import PageOneGrid from "./components/PageOneGrid";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllTimes, removeLastTime } from 'store/thunks/pageOne-thunk';
+import RemoveTimeResult from './components/RemoveTimeResult';
+import PageOneGrid from './components/PageOneGrid';
 
 const PageOne = () => {
   const dispatch = useDispatch();
@@ -12,12 +12,8 @@ const PageOne = () => {
   }, [dispatch]);
 
   const [showRemoved, setShowRemoved] = useState(false);
-  const lastTimeRemoved = useSelector(
-    (state) => state.pageOne?.removedTime || ""
-  );
-  const remainingTimesLength = useSelector(
-    (state) => state.pageOne?.previousTimes || []
-  ).length;
+  const lastTimeRemoved = useSelector((state) => state.pageOne?.removedTime || '');
+  const remainingTimesLength = useSelector((state) => state.pageOne?.previousTimes || []).length;
 
   const handleRemoveLastTime = () => {
     dispatch(removeLastTime());

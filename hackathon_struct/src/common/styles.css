@@ -1,7 +1,7 @@
 body {
-  font-family: "Inter", sans-serif;
-  background-color: #DBE2EF;
-  color: #F9F7F7;
+  font-family: 'Inter', sans-serif;
+  background-color: #dbe2ef;
+  color: #f9f7f7;
 }
 
 /* ------------------------ */
@@ -17,7 +17,7 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   display: flex;
-  background-color: #112D4E;
+  background-color: #112d4e;
   margin-top: 2rem;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -41,19 +41,19 @@ body {
 .home-title {
   font-size: 2rem;
   font-weight: bold;
-  color: #F9F7F7;
+  color: #f9f7f7;
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
 .action-button {
-  background-color: #3F72AF;
-  border: 2px solid #F9F7F7;
+  background-color: #3f72af;
+  border: 2px solid #f9f7f7;
   border-radius: 3px;
   padding: 1.5rem;
   text-align: center;
   font-weight: bold;
-  color: #F9F7F7;
+  color: #f9f7f7;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
@@ -63,9 +63,9 @@ body {
 }
 
 .action-button:hover {
-  background-color: #DBE2EF;
-  border-color: #3F72AF;
-  color: #112D4E;
+  background-color: #dbe2ef;
+  border-color: #3f72af;
+  color: #112d4e;
   transform: translateY(-2px);
 }
 
@@ -79,7 +79,7 @@ body {
 .button-label {
   margin-top: 0.2rem;
   font-size: 0.85rem;
-  color: #F9F7F7;
+  color: #f9f7f7;
   font-weight: 600;
   font-style: oblique;
   text-align: center;
@@ -90,7 +90,7 @@ body {
 /* Results Styles */
 /* ------------------------ */
 .results-flex {
-  background-color: #112D4E;
+  background-color: #112d4e;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,7 +99,7 @@ body {
 
 .results-text {
   width: 100%;
-  color: #F9F7F7;
+  color: #f9f7f7;
   display: flex;
   justify-content: center;
 }
@@ -126,35 +126,34 @@ li:not(:last-child) {
 
 .sku-table th,
 .sku-table td {
-  border: 1px solid #3F72AF;
+  border: 1px solid #3f72af;
   padding: 0.5rem;
   text-align: left;
 }
 
 .sku-table th {
-  background-color: #3F72AF;
-  color: #F9F7F7;
+  background-color: #3f72af;
+  color: #f9f7f7;
   font-weight: bold;
   padding: 0.75rem;
   text-align: center;
   font-size: 0.9rem;
-  border-bottom: 2px solid #112D4E;
+  border-bottom: 2px solid #112d4e;
 }
 
 .sku-table td {
-  color: #F9F7F7;
+  color: #f9f7f7;
   font-size: 0.85rem;
   padding: 0.5rem;
-  border: 1px solid #3F72AF;
+  border: 1px solid #3f72af;
 }
 
 .alert-row {
   background-color: #f0391d;
 }
 
-
 .sku-table tr:hover {
-  background-color: #3F72AF;
-  color: #112D4E;
+  background-color: #3f72af;
+  color: #112d4e;
   cursor: pointer;
 }

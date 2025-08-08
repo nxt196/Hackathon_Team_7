@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { getAllTimes } from "store/thunks/pageTwo-thunk";
-import "common/styles.css";
-import PageTwoGrid from "./components/PageTwoGrid";
-import ShowTimesResult from "./components/ShowAlertsResult.jsx";
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getAllTimes } from 'store/thunks/pageTwo-thunk';
+import 'common/styles.css';
+import PageTwoGrid from './components/PageTwoGrid';
+import ShowTimesResult from './components/ShowAlertsResult.jsx';
 
 const PageTwo = () => {
   const dispatch = useDispatch();
@@ -13,9 +13,7 @@ const PageTwo = () => {
   }, [dispatch]);
   const [showTimes, setShowTimes] = useState(false);
 
-  const previousTimes = useSelector(
-    (state) => state.pageTwo?.previousTimes || []
-  );
+  const previousTimes = useSelector((state) => state.pageTwo?.previousTimes || []);
 
   return (
     <div className="home-container">

@@ -106,6 +106,16 @@ app.get('/api/pipeline', async (_, res) => {
     }
 });
 
+app.get('/api/alerts/count', async (_, res) => {
+    try {
+        const db = await dbPromise;
+        const result = await db.get(`SELECT COUNT(*) AS count FROM alerts`);
+        res.json({ alertCount: result.count });
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch alert count', details: err.message });
+    }
+});
+
 
 
 
