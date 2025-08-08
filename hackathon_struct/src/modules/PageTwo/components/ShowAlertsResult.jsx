@@ -72,6 +72,7 @@ const ShowAlertsResult = () => {
     <div className="results-flex">
       <div className="results-text">
         {sortedSkus.length > 0 ? (
+            <h1 className="alert-header">Your Current Alerts
           <table className="sku-table">
             <thead>
               <tr>
@@ -86,7 +87,7 @@ const ShowAlertsResult = () => {
               </tr>
             </thead>
             <tbody>
-              {sortedSkus.map((sku) => (
+              {sortedSkus.filter((sku) => sku.alert_message).map((sku) => (
                 <tr key={sku.sku_id} className={sku.alert_message ? 'alert-row' : ''}>
                   <td>
                     {sku.alert_message == 'Low days of service' ? (
@@ -112,6 +113,7 @@ const ShowAlertsResult = () => {
               ))}
             </tbody>
           </table>
+            </h1>
         ) : (
           <p>No SKUs found.</p>
         )}
