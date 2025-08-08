@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { FiAlertTriangle } from 'react-icons/fi';
-import 'common/styles.css';
+import React, { useEffect, useState } from "react";
+import { FiAlertTriangle } from "react-icons/fi";
+import "common/styles.css";
 
 const ShowAlertsResult = () => {
   const [skus, setSkus] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sortConfig, setSortConfig] = useState({ key: 'alert_message', direction: 'desc' });
+  const [sortConfig, setSortConfig] = useState({ key: "alert_message", direction: "desc" });
 
-  useEffect(() => {
-    fetch('http://localhost:4000/api/skus')
+    useEffect(() => {
+        fetch("http://localhost:4000/api/skus")
       .then((res) => {
-        if (!res.ok) throw new Error('Network response was not ok');
+        if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
       })
       .then((data) => {
@@ -24,45 +24,49 @@ const ShowAlertsResult = () => {
       });
   }, []);
 
-  const sortedSkus = React.useMemo(() => {
-    if (!sortConfig.key) return skus;
+    const sortedSkus = React.useMemo(() => {
+        if (!sortConfig.key) return skus;
 
-    return [...skus].sort((a, b) => {
-      const { key, direction } = sortConfig;
+        return [...skus].sort((a, b) => {
+            const { key, direction } = sortConfig;
 
-      if (key === 'alert_message') {
-        const priority = (msg) => {
-          if (msg === 'Low days of service') return 2;
-          if (msg === 'SKU has been staged for over 48 hours') return 1;
-          return 0;
-        };
+            if (key === "alert_message") {
+                const priority = (msg) => {
+                    if (msg === "Low days of service") return 2;
+                    if (msg === "SKU has been staged for over 48 hours") return 1;
+                    return 0;
+                };
 
-        const aPriority = priority(a.alert_message);
-        const bPriority = priority(b.alert_message);
+                const aPriority = priority(a.alert_message);
+                const bPriority = priority(b.alert_message);
 
-        return direction === 'asc' ? aPriority - bPriority : bPriority - aPriority;
-      }
+                return direction === "asc"
+                    ? aPriority - bPriority
+                    : bPriority - aPriority;
+            }
 
-      const aVal = a[key];
-      const bVal = b[key];
+            const aVal = a[key];
+            const bVal = b[key];
 
-      if (typeof aVal === 'string') {
-        return direction === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-      } else {
-        return direction === 'asc' ? aVal - bVal : bVal - aVal;
-      }
-    });
-  }, [skus, sortConfig]);
+            if (typeof aVal === "string") {
+                return direction === "asc"
+                    ? aVal.localeCompare(bVal)
+                    : bVal.localeCompare(aVal);
+            } else {
+                return direction === "asc" ? aVal - bVal : bVal - aVal;
+            }
+        });
+    }, [skus, sortConfig]);
 
-  const handleSort = (key) => {
-    setSortConfig((prev) => ({
-      key,
-      direction: prev.key === key && prev.direction === 'asc' ? 'desc' : 'asc',
-    }));
-  };
+    const handleSort = (key) => {
+        setSortConfig((prev) => ({
+            key,
+            direction: prev.key === key && prev.direction === "asc" ? "desc" : "asc",
+        }));
+    };
 
-  if (loading) return <p>Loading SKUs...</p>;
-  if (error) return <p>Error: {error}</p>;
+    if (loading) return <p>Loading SKUs...</p>;
+    if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="results-flex">
