@@ -1,13 +1,7 @@
 body {
-<<<<<<< HEAD
   font-family: "Inter", sans-serif;
   background-color: #F7FBFC;
   color: black;
-=======
-  font-family: 'Inter', sans-serif;
-  background-color: #dbe2ef;
-  color: #f9f7f7;
->>>>>>> origin/main
 }
 
 /* ------------------------ */
@@ -132,28 +126,19 @@ li:not(:last-child) {
 
 .sku-table th,
 .sku-table td {
-<<<<<<< HEAD
-  border: 1px solid #536B79;
-=======
+  /*border: 1px solid #536B79;*/
   border: 1px solid #3f72af;
->>>>>>> origin/main
   padding: 0.5rem;
   text-align: left;
 }
 
 .sku-table th {
-<<<<<<< HEAD
   background-color: #2A4D60;
   color: white;
-=======
-  background-color: #3f72af;
-  color: #f9f7f7;
->>>>>>> origin/main
   font-weight: bold;
   padding: 0.75rem;
   text-align: center;
   font-size: 0.9rem;
-<<<<<<< HEAD
   border-bottom: 2px solid #536B79;
 }
 
@@ -169,7 +154,6 @@ li:not(:last-child) {
 .sku-table tr:hover td {
   background-color: #536B79;
   color: white;
-=======
   border-bottom: 2px solid #112d4e;
 }
 
@@ -187,6 +171,5 @@ li:not(:last-child) {
 .sku-table tr:hover {
   background-color: #3f72af;
   color: #112d4e;
->>>>>>> origin/main
   cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getAllTimes } from 'store/thunks/dashboardhome-thunk';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import 'common/dashboard.css';
 import ShowAlertsResult from 'modules/PageTwo/components/ShowAlertsResult.jsx';
 import { FiAlertCircle } from 'react-icons/fi';
