@@ -70,9 +70,9 @@ const ShowAlertsResult = () => {
 
   return (
     <div className="results-flex">
-      <div className="results-text">
+      <div className="results-text flex">
         {sortedSkus.length > 0 ? (
-            <h1 className="alert-header">Your Current Alerts
+            <h1 className="alert-header justify-center">Your Current Alerts
           <table className="sku-table">
             <thead>
               <tr>

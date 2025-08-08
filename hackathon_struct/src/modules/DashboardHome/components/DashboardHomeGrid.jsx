@@ -42,8 +42,7 @@ const DashboardHomeGrid = () => {
 
         {/* Profile Section */}
         <div className="dashboard-profile">
-          <div className="profile-icon">LH</div>
-          <div className="profile-label">Profile</div>
+          <div className="profile-icon">ME</div>
         </div>
       </header>
 
