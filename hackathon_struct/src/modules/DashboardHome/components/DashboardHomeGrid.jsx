@@ -3,13 +3,11 @@ import { useDispatch } from 'react-redux';
 import { getAllTimes } from 'store/thunks/dashboardhome-thunk';
 import { useNavigate } from 'react-router-dom';
 import 'common/dashboard.css';
-import PageTwoGrid from 'modules/PageTwo/components/PageTwoGrid.jsx';
 import ShowAlertsResult from 'modules/PageTwo/components/ShowAlertsResult.jsx';
-import ShowPipelineResult from 'modules/PageTwo/components/ShowBacklog.jsx';
 import { FiAlertCircle } from 'react-icons/fi';
 import ThreeHourCountdown from 'modules/DashboardHome/components/ThreeHourCountdown.jsx';
 
-const DashboardHomeGrid = ({ onAddTime }) => {
+const DashboardHomeGrid = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -23,10 +21,12 @@ const DashboardHomeGrid = ({ onAddTime }) => {
   const handleNavigatePageTwo = () => {
     navigate('/page-two');
   };
+  const handleNavigatePageThree = () => {
+    navigate('/page-three');
+  };
 
   return (
     <div className="dashboard-container">
-      {/* Top Header */}
       <header className="dashboard-header">
         <div className="header-buttons">
           <button onClick={handleNavigatePageOne}>Page One</button>
@@ -54,9 +54,15 @@ const DashboardHomeGrid = ({ onAddTime }) => {
               <section className="kanban-panel">
                 <ThreeHourCountdown />
               </section>
-              <section className="kanban-panel">View by Warehouse</section>
-              <section className="kanban-panel">View by asdfasdf</section>
-              <section className="kanban-panel">View by asdfasdf</section>
+              <section className="kanban-panel" onClick={handleNavigatePageOne}>
+                View by Warehouse
+              </section>
+              <section className="kanban-panel" onClick={handleNavigatePageTwo}>
+                View the Backlog
+              </section>
+              <section className="kanban-panel" onClick={handleNavigatePageThree}>
+                View the Dock Status
+              </section>
               <section className="kanban-panel">View by asdfasdf</section>
               <section className="kanban-panel">View by asdfasdf</section>
             </div>

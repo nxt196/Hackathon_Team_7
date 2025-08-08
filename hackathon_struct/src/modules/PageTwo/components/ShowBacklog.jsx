@@ -5,22 +5,22 @@ const ShowPipelineResult = () => {
   const [pipelineData, setPipelineData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
+  const [sortConfig, setSortConfig] = useState({ key: 'status', direction: 'asc' });
 
   useEffect(() => {
     fetch('http://localhost:4000/api/pipeline')
-      .then((res) => {
-        if (!res.ok) throw new Error('Network response was not ok');
-        return res.json();
-      })
-      .then((data) => {
-        setPipelineData(data.production_pipeline);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
+        .then((res) => {
+          if (!res.ok) throw new Error('Network response was not ok');
+          return res.json();
+        })
+        .then((data) => {
+          setPipelineData(data.production_pipeline);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setLoading(false);
+        });
   }, []);
 
   const sortedPipeline = React.useMemo(() => {
@@ -50,34 +50,34 @@ const ShowPipelineResult = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="results-flex">
-      <div className="results-text">
-        {sortedPipeline.length > 0 ? (
-          <table className="sku-table">
-            <thead>
-              <tr>
-                <th onClick={() => handleSort('pipeline_id')}>Pipeline ID</th>
-                <th onClick={() => handleSort('sku_id')}>SKU ID</th>
-                <th onClick={() => handleSort('status')}>Status</th>
-                <th onClick={() => handleSort('estimated_completion')}>Estimated Completion</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sortedPipeline.map((item) => (
-                <tr key={item.pipeline_id}>
-                  <td>{item.pipeline_id}</td>
-                  <td>{item.sku_id}</td>
-                  <td>{item.status}</td>
-                  <td>{item.estimated_completion}</td>
+      <div className="results-flex">
+        <div className="results-text">
+          {sortedPipeline.length > 0 ? (
+              <table className="sku-table">
+                <thead>
+                <tr>
+                  <th onClick={() => handleSort('status')}>Status</th>
+                  <th onClick={() => handleSort('pipeline_id')}>Pipeline ID</th>
+                  <th onClick={() => handleSort('sku_id')}>SKU ID</th>
+                  <th onClick={() => handleSort('estimated_completion')}>Estimated Completion</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p>No pipeline data found.</p>
-        )}
+                </thead>
+                <tbody>
+                {sortedPipeline.map((item) => (
+                    <tr key={item.pipeline_id}>
+                      <td>{item.status}</td>
+                      <td>{item.pipeline_id}</td>
+                      <td>{item.sku_id}</td>
+                      <td>{item.estimated_completion}</td>
+                    </tr>
+                ))}
+                </tbody>
+              </table>
+          ) : (
+              <p>No pipeline data found.</p>
+          )}
+        </div>
       </div>
-    </div>
   );
 };
 

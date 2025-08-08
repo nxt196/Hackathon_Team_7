@@ -106,15 +106,21 @@ app.get('/api/pipeline', async (_, res) => {
     }
 });
 
-app.get('/api/alerts/count', async (_, res) => {
+
+app.get('/api/dock-status', async (_, res) => {
     try {
         const db = await dbPromise;
-        const result = await db.get(`SELECT COUNT(*) AS count FROM alerts`);
-        res.json({ alertCount: result.count });
+        const dockStatusData = await db.all(`
+      SELECT dock_id, sku_id, staging_lane, days_of_service, dock_location
+      FROM dock_status
+    `);
+        res.json({ dockStatus: dockStatusData });
+        console.log(dockStatusData);
     } catch (err) {
-        res.status(500).json({ error: 'Failed to fetch alert count', details: err.message });
+        res.status(500).json({ error: 'Failed to fetch dock status', details: err.message });
     }
 });
+
 
 
 

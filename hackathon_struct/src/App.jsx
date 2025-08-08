@@ -3,6 +3,7 @@ import DashboardHome from './modules/DashboardHome';
 import PageOne from 'modules/PageOne';
 import PageTwo from 'modules/PageTwo';
 import './common/styles.css';
+import PageThree from 'modules/PageThree/index.jsx';
 
 function App() {
   const router = createBrowserRouter([
@@ -17,6 +18,10 @@ function App() {
     {
       path: '/page-two',
       element: <PageTwo></PageTwo>,
+    },
+    {
+      path: '/page-three',
+      element: <PageThree></PageThree>,
     },
   ]);
 

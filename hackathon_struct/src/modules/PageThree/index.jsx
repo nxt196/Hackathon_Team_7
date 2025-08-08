@@ -1,21 +1,20 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getAllTimes } from 'store/thunks/pageOne-thunk';
+import { getAllTimes } from 'store/thunks/pageTwo-thunk';
+import 'common/styles.css';
+import ShowBacklog from 'modules/PageTwo/components/ShowBacklog.jsx';
 
-import ShowWarehouseResults from "modules/PageOne/components/ShowWarehouseResults.jsx";
-
-const PageOne = () => {
+const PageThree = () => {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getAllTimes());
   }, [dispatch]);
 
   return (
     <div className="home-container">
-      <ShowWarehouseResults />
+      <ShowBacklog />
     </div>
   );
 };
 
-export default PageOne;
+export default PageThree;
