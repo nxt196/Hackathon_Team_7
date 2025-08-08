@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { getAllTimes } from "store/thunks/pageOne-thunk";
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getAllTimes } from 'store/thunks/pageOne-thunk';
 
 const PageOneGrid = ({ onRemoveTime }) => {
   const navigate = useNavigate();
@@ -12,10 +12,10 @@ const PageOneGrid = ({ onRemoveTime }) => {
   }, [dispatch]);
 
   const handleNavigateHome = () => {
-    navigate("/");
+    navigate('/');
   };
   const handleNavigatePageTwo = () => {
-    navigate("/page-two");
+    navigate('/page-two');
   };
   return (
     <div className="home-grid">

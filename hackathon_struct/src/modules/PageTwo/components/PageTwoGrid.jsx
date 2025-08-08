@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getAllTimes } from "store/thunks/pageTwo-thunk";
-import { useNavigate } from "react-router-dom";
-import "common/styles.css";
-import { FaArrowLeft } from "react-icons/fa6";
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getAllTimes } from 'store/thunks/pageTwo-thunk';
+import { useNavigate } from 'react-router-dom';
+import 'common/styles.css';
+import { FaArrowLeft } from 'react-icons/fa6';
 
-const PageTwoGrid = ({  }) => {
+const PageTwoGrid = ({}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,11 +15,11 @@ const PageTwoGrid = ({  }) => {
   const navigate = useNavigate();
 
   const handleNavigateHome = () => {
-    navigate("/");
+    navigate('/');
   };
 
   const handleNavigatePageOne = () => {
-    navigate("/page-one");
+    navigate('/page-one');
   };
 
   return (

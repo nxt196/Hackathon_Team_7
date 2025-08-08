@@ -1,10 +1,10 @@
-import RemoveTimeResult from "./components/AddTimeResult";
-import DashboardHomeGrid from "../../modules/DashboardHome/components/DashboardHomeGrid";
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addCurrentTime } from "store/thunks/dashboardhome-thunk";
-import { getAllTimes } from "store/thunks/dashboardhome-thunk";
-import "common/styles.css";
+import RemoveTimeResult from './components/AddTimeResult';
+import DashboardHomeGrid from '../../modules/DashboardHome/components/DashboardHomeGrid';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addCurrentTime } from 'store/thunks/dashboardhome-thunk';
+import { getAllTimes } from 'store/thunks/dashboardhome-thunk';
+import 'common/styles.css';
 
 const DashboardHome = () => {
   const dispatch = useDispatch();
@@ -20,9 +20,7 @@ const DashboardHome = () => {
     setShowAdd(true);
   };
 
-  const currentTime = useSelector(
-    (state) => state.dashboardHome?.currentTime || ""
-  );
+  const currentTime = useSelector((state) => state.dashboardHome?.currentTime || '');
 
   return (
     <div className="home-container">

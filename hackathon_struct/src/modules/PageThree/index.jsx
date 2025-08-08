@@ -4,7 +4,7 @@ import { getAllTimes } from 'store/thunks/pageTwo-thunk';
 import 'common/styles.css';
 import ShowBacklog from 'modules/PageTwo/components/ShowBacklog.jsx';
 
-const PageTwo = () => {
+const PageThree = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllTimes());
@@ -17,4 +17,4 @@ const PageTwo = () => {
   );
 };
 
-export default PageTwo;
+export default PageThree;

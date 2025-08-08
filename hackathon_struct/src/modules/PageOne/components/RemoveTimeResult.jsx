@@ -1,26 +1,18 @@
-import React from "react";
+import React from 'react';
 
-import "common/styles.css";
+import 'common/styles.css';
 
-const RemoveTimeResult = ({
-  showRemoved,
-  lastTimeRemoved,
-  remainingTimesLength,
-}) => {
+const RemoveTimeResult = ({ showRemoved, lastTimeRemoved, remainingTimesLength }) => {
   return (
     <div className="results-flex">
       <div className="results-text">
         {showRemoved &&
           (lastTimeRemoved ? (
             <p>
-              The time removed was: {lastTimeRemoved}, {remainingTimesLength}{" "}
-              remaining{" "}
+              The time removed was: {lastTimeRemoved}, {remainingTimesLength} remaining{' '}
             </p>
           ) : (
-            <p>
-              There are no more times to remove, please add more times on the
-              home Page
-            </p>
+            <p>There are no more times to remove, please add more times on the home Page</p>
           ))}
       </div>
     </div>

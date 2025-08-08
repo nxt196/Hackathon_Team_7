@@ -8,9 +8,9 @@ body {
 
 /* Container */
 .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Header */
@@ -49,40 +49,40 @@ body {
 
 /* Profile Section */
 .dashboard-profile {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .profile-icon {
-    background-color: #112D4E;
-    color: #F9F7F7;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #112d4e;
+  color: #f9f7f7;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .profile-label {
-    margin-left: 0.5rem;
-    font-style: italic;
+  margin-left: 0.5rem;
+  font-style: italic;
 }
 
 /* Main Layout */
 .dashboard-main {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
 }
 
 /* Content Area */
 .dashboard-content {
-    flex: 1;
-    padding: 1rem;
+  flex: 1;
+  padding: 1rem;
 }
 
 /* Title */
@@ -96,10 +96,10 @@ body {
 
 /* Panels */
 .dashboard-panels {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .kanban-panel{
@@ -126,7 +126,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .dashboard-panels {
-        flex-direction: column;
-    }
+  .dashboard-panels {
+    flex-direction: column;
+  }
 }

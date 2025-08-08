@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import 'common/styles.css';
+import '../../../common/styles.css';
 
-const ShowPipelineResult = () => {
-  const [pipelineData, setPipelineData] = useState([]);
+const ShowWarehouseResults = () => {
+  const [dockStatus, setDockStatus] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sortConfig, setSortConfig] = useState({ key: 'status', direction: 'asc' });
+  const [sortConfig, setSortConfig] = useState({ key: 'days_of_service', direction: 'desc' });
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/pipeline')
+    fetch('http://localhost:4000/api/dock-status')
       .then((res) => {
         if (!res.ok) throw new Error('Network response was not ok');
         return res.json();
       })
       .then((data) => {
-        setPipelineData(data.production_pipeline);
+        setDockStatus(data.dockStatus);
         setLoading(false);
       })
       .catch((err) => {
@@ -23,10 +23,10 @@ const ShowPipelineResult = () => {
       });
   }, []);
 
-  const sortedPipeline = React.useMemo(() => {
-    if (!sortConfig.key) return pipelineData;
+  const sortedDockStatus = React.useMemo(() => {
+    if (!sortConfig.key) return dockStatus;
 
-    return [...pipelineData].sort((a, b) => {
+    return [...dockStatus].sort((a, b) => {
       const { key, direction } = sortConfig;
       const aVal = a[key];
       const bVal = b[key];
@@ -37,7 +37,7 @@ const ShowPipelineResult = () => {
         return direction === 'asc' ? aVal - bVal : bVal - aVal;
       }
     });
-  }, [pipelineData, sortConfig]);
+  }, [dockStatus, sortConfig]);
 
   const handleSort = (key) => {
     setSortConfig((prev) => ({
@@ -46,39 +46,41 @@ const ShowPipelineResult = () => {
     }));
   };
 
-  if (loading) return <p>Loading production pipeline...</p>;
+  if (loading) return <p>Loading dock status...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="results-flex">
       <div className="results-text">
-        {sortedPipeline.length > 0 ? (
+        {sortedDockStatus.length > 0 ? (
           <table className="sku-table">
             <thead>
               <tr>
-                <th onClick={() => handleSort('status')}>Status</th>
-                <th onClick={() => handleSort('pipeline_id')}>Pipeline ID</th>
+                <th onClick={() => handleSort('dock_id')}>Dock ID</th>
                 <th onClick={() => handleSort('sku_id')}>SKU ID</th>
-                <th onClick={() => handleSort('estimated_completion')}>Estimated Completion</th>
+                <th onClick={() => handleSort('staging_lane')}>Staging Lane</th>
+                <th onClick={() => handleSort('days_of_service')}>Days of Service</th>
+                <th onClick={() => handleSort('dock_location')}>Dock Location</th>
               </tr>
             </thead>
             <tbody>
-              {sortedPipeline.map((item) => (
-                <tr key={item.pipeline_id}>
-                  <td>{item.status}</td>
-                  <td>{item.pipeline_id}</td>
-                  <td>{item.sku_id}</td>
-                  <td>{item.estimated_completion}</td>
+              {sortedDockStatus.map((dock) => (
+                <tr key={`${dock.dock_id}-${dock.sku_id}`}>
+                  <td>{dock.dock_id}</td>
+                  <td>{dock.sku_id}</td>
+                  <td>{dock.staging_lane}</td>
+                  <td>{dock.days_of_service}</td>
+                  <td>{dock.dock_location}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         ) : (
-          <p>No pipeline data found.</p>
+          <p>No dock status records found.</p>
         )}
       </div>
     </div>
   );
 };
 
-export default ShowPipelineResult;
+export default ShowWarehouseResults;
