@@ -121,19 +121,47 @@ app.get('/api/dock-status', async (_, res) => {
     }
 });
 
+// app.get('/api/allskus', async (_, res) => {
+//     try {
+//         const db = await dbPromise;
+//         const skusWithAlerts = await db.all(`
+//             SELECT
+//                 skus.*,
+//                 alerts.alert_message AS alert_message
+//             FROM skus
+//                      LEFT JOIN alerts ON skus.sku_id = alerts.sku_id
+//         `);
+//         res.json({ skus: skusWithAlerts });
+//     } catch (err) {
+//         res.status(500).json({ error: 'Failed to fetch SKUs with alerts', details: err.message });
+//     }
+// });
+
 app.get('/api/allskus', async (_, res) => {
     try {
         const db = await dbPromise;
-        const skusWithAlerts = await db.all(`
+        const skusWithDetails = await db.all(`
             SELECT
                 skus.*,
-                alerts.alert_message AS alert_message
+                GROUP_CONCAT(alerts.alert_message, '; ') AS alert_messages,
+                dock_status.staging_lane,
+                dock_status.dock_location,
+                dock_status.days_of_service,
+                production_pipeline.status AS pipeline_status
             FROM skus
-                     LEFT JOIN alerts ON skus.sku_id = alerts.sku_id
+            LEFT JOIN alerts ON skus.sku_id = alerts.sku_id
+            LEFT JOIN dock_status ON skus.sku_id = dock_status.sku_id
+            LEFT JOIN production_pipeline ON skus.sku_id = production_pipeline.sku_id
+            GROUP BY skus.sku_id
         `);
-        res.json({ skus: skusWithAlerts });
+
+        res.json({ skus: skusWithDetails });
     } catch (err) {
-        res.status(500).json({ error: 'Failed to fetch SKUs with alerts', details: err.message });
+        console.error('Error fetching SKUs with details:', err);
+        res.status(500).json({
+            error: 'Failed to fetch SKUs with details',
+            details: err.message
+        });
     }
 });
 

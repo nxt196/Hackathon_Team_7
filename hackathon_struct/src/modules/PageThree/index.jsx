@@ -28,7 +28,7 @@ const PageThree = () => {
             Backlog
           </Link>
           <Link to="/page-three" className="nav-link">
-            Dock Status
+            All SKUs
           </Link>
         </nav>
 

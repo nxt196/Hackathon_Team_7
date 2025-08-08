@@ -6,7 +6,7 @@ const ShowAllSkus = () => {
     const [skus, setSkus] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [sortConfig, setSortConfig] = useState({ key: "alert_message", direction: "desc" });
+    const [sortConfig, setSortConfig] = useState({ key: "alert_messages", direction: "desc" });
 
     useEffect(() => {
         fetch("http://localhost:4000/api/allskus")
@@ -30,15 +30,16 @@ const ShowAllSkus = () => {
         return [...skus].sort((a, b) => {
             const { key, direction } = sortConfig;
 
-            if (key === "alert_message") {
+            if (key === "alert_messages") {
                 const priority = (msg) => {
-                    if (msg === "Low days of service") return 2;
-                    if (msg === "SKU has been staged for over 48 hours") return 1;
+                    if (!msg) return 0;
+                    if (msg.includes("Low days of service")) return 2;
+                    if (msg.includes("SKU has been staged for over 48 hours")) return 1;
                     return 0;
                 };
 
-                const aPriority = priority(a.alert_message);
-                const bPriority = priority(b.alert_message);
+                const aPriority = priority(a.alert_messages);
+                const bPriority = priority(b.alert_messages);
 
                 return direction === "asc"
                     ? aPriority - bPriority
@@ -72,7 +73,8 @@ const ShowAllSkus = () => {
         <div className="results-flex">
             <div className="results-text">
                 {sortedSkus.length > 0 ? (
-                    <h1 className="alert-header">All SKUs
+                    <>
+                        <h1 className="alert-header">All SKUs</h1>
                         <table className="sku-table">
                             <thead>
                             <tr>
@@ -83,24 +85,16 @@ const ShowAllSkus = () => {
                                 <th onClick={() => handleSort('remortgage_gallons')}>Gallons</th>
                                 <th onClick={() => handleSort('pallets')}>Pallets</th>
                                 <th onClick={() => handleSort('weight_lbs')}>Weight (lbs)</th>
+                                <th onClick={() => handleSort('staging_lane')}>Staging Lane</th>
+                                <th onClick={() => handleSort('dock_location')}>Dock Location</th>
+                                <th onClick={() => handleSort('days_of_service')}>Days of Service</th>
+                                <th onClick={() => handleSort('pipeline_status')}>Pipeline Status</th>
+                                <th onClick={() => handleSort('alert_messages')}>Alerts</th>
                             </tr>
                             </thead>
                             <tbody>
                             {sortedSkus.map((sku) => (
-                                <tr key={sku.sku_id} className={sku.alert_message ? 'alert-row' : ''}>
-                                    {/*<td>*/}
-                                    {/*    {sku.alert_message && sku.alert_message == 'Low days of service' ? (*/}
-                                    {/*        <FiAlertTriangle*/}
-                                    {/*            style={{*/}
-                                    {/*                color: 'red',*/}
-                                    {/*                marginRight: '8px',*/}
-                                    {/*            }}*/}
-                                    {/*        />*/}
-                                    {/*    ) : sku.alert_message == 'SKU has been staged for over 48 hours' ? (*/}
-                                    {/*        <FiAlertTriangle style={{ color: 'yellow', marginRight: '8px' }} />*/}
-                                    {/*    ) : null}*/}
-                                    {/*    {sku.alert_message || '—'}*/}
-                                    {/*</td>*/}
+                                <tr key={sku.sku_id} className={sku.alert_messages ? 'alert-row' : ''}>
                                     <td>{sku.sku_id}</td>
                                     <td>{sku.product_name}</td>
                                     <td>{sku.product_number}</td>
@@ -108,11 +102,28 @@ const ShowAllSkus = () => {
                                     <td>{sku.remortgage_gallons}</td>
                                     <td>{sku.pallets}</td>
                                     <td>{sku.weight_lbs}</td>
+                                    <td>{sku.staging_lane || ''}</td>
+                                    <td>{sku.dock_location || ''}</td>
+                                    <td>{sku.days_of_service ?? ''}</td>
+                                    <td>{sku.pipeline_status || ''}</td>
+                                    <td>
+                                        {sku.alert_messages ? (
+                                            <>
+                                                {sku.alert_messages.includes("Low days of service") && (
+                                                    <FiAlertTriangle style={{ color: 'red', marginRight: '8px' }} />
+                                                )}
+                                                {sku.alert_messages.includes("SKU has been staged for over 48 hours") && (
+                                                    <FiAlertTriangle style={{ color: 'yellow', marginRight: '8px' }} />
+                                                )}
+                                                {sku.alert_messages}
+                                            </>
+                                        ) : ''}
+                                    </td>
                                 </tr>
                             ))}
                             </tbody>
                         </table>
-                    </h1>
+                    </>
                 ) : (
                     <p>No SKUs found.</p>
                 )}

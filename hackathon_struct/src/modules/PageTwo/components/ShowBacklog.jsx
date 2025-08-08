@@ -53,7 +53,7 @@ const ShowPipelineResult = () => {
       <div className="results-flex">
         <div className="results-text">
           {sortedPipeline.length > 0 ? (
-              <h1 className="alert-header">Production Pipeline
+              <h1 className="alert-header">Backlog
                 <table className="sku-table">
                   <thead>
                   <tr>
